@@ -11,5 +11,5 @@ app.use('/api/auth',require('./routes/auth.js'))
 app.use('/api/notes',require('./routes/notes.js'))
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`)
+  console.log(`Backend running on port http://localhost:${port}`)
 })

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import noteContext from '../context/notes/noteContext'
 import Noteitem from './Noteitem'
 import AddNote from './AddNote'
@@ -7,7 +7,12 @@ const Notes = () => {
   // useContext is used for use the context api 
   const context = useContext(noteContext)
   // here we are dstructuing the notes and setnotes from context 
-  const { notes, addNote } = context
+  const { notes,getNotes} = context
+
+  useEffect(() => {
+    getNotes()
+  }, [])
+  
 
   return (
     <>
@@ -17,7 +22,7 @@ const Notes = () => {
 
         {/* here notes is come from notestate file  */}
         {notes.map((note) => {
-          return <Noteitem key={note.id} note={note} />
+          return <Noteitem key={note._id} note={note} />
         })}
       </div>
     </>
